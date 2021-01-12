@@ -11,3 +11,247 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+button {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 15px 0;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  background: #603bbb;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px;
+  background: #e9e9e9;
+  display: flex;
+}
+
+.login .loginContainer {
+  padding: 60px;
+  margin: auto;
+  width: 100%;
+  max-width: 520px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: radial-gradient(
+          ellipse at left bottom,
+          rgba(22, 24, 47, 1) 0%,
+          rgba(38, 20, 72, 0.9) 59%,
+          rgba(17, 27, 75, 0.9) 100%
+  );
+  box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+}
+
+.login .loginContainer label {
+  color: white;
+  margin: 14px 0;
+  display: block;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.login .loginContainer input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 19px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.login .loginContainer .btnContainer {
+  width: 100%;
+  padding: 24px 0;
+}
+
+.login .loginContainer .btnContainer p {
+  margin: 14px 0 0 0;
+  text-align: right;
+  color: #fff;
+}
+
+.login .loginContainer .btnContainer p span {
+  color: yellow;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 400ms ease-in-out;
+}
+
+.login .loginContainer .btnContainer p span:hover {
+  color: red;
+}
+
+.login .loginContainer .errorMsg {
+  color: red;
+  font-size: 16px;
+}
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(
+          ellipse at left bottom,
+          rgba(22, 24, 47, 1) 0%,
+          rgba(38, 20, 72, 0.9) 59%,
+          rgba(17, 27, 75, 0.9) 100%
+  );
+}
+
+.hero nav {
+  background: #603bbb;
+  width: 100%;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero nav h2 {
+  color: #fff;
+  font-size: 20px;
+}
+
+.hero nav button {
+  width: 86px;
+  padding: 8px 0;
+  background: #3a2b58;
+}
+button.logout{
+  width: auto;
+  padding: 10px;
+  display: inline-block;
+  /*background: #000;*/
+}
+.task{
+  width: 500px;
+  margin: 0 auto;
+}
+.form{
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*height: calc(100% - 40px);*/
+}
+.form button{
+  width: auto;
+  padding: 10px 40px;
+}
+.form .formWrapper{
+  border-radius: 5px;
+  text-align: right;
+  color: white;
+  padding: 10px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+          ellipse at left bottom,
+          rgba(22, 24, 47, 1) 0%,
+          rgba(38, 20, 72, 0.9) 59%,
+          rgba(17, 27, 75, 0.9) 100%
+  );
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  /*align-content: space-between;*/
+  /*align-items: space-between;*/
+}
+
+.form .formWrapper input{
+  padding: 10px;
+  width: 100%;
+  /*display: inline-block;*/
+}
+.df{
+  display: flex;
+  justify-content: space-between;
+}
+.form .formWrapper .close{
+  padding: 10px;
+  color: white;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  /*margin-left: calc(100% - 40px);*/
+  /*width: auto;*/
+}
+.form .formWrapper p{
+  font-size: 25px;
+  padding: 10px;
+  color: white;
+  display: inline-block;
+}
+.form .formWrapper textarea{
+  padding: 10px;
+  resize: none;
+  width: 100%;
+}
+.todo{
+  padding-top: 5px;
+  /*padding: 10px 10px 0 10px;*/
+  /*padding: 50px;*/
+  color: white;
+  margin-top: 10px;
+  border: 2px solid #603bbb;
+  border-radius: 10px 10px 10px 10px;
+}
+.todo button{
+  padding: 10px;
+  transform: translateY(1px);
+}
+.todo p{
+  margin: 0 10px;
+}
+.headerTodo:after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #603bbb;
+}
+.todo .timeAgo{
+  color: gray;
+  /*margin-left: 100%;*/
+  font-size: 13px;
+}
+.todo .body{
+  margin-bottom: 10px;
+}
+.todo .headerTodo{
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px 10px;
+}
+.header{
+  color: white;
+  margin-top: 10px;
+}
+.empty{
+  color: white;
+}
+
