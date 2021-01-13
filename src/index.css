@@ -129,7 +129,12 @@ button {
   color: #fff;
   font-size: 20px;
 }
-
+@media (max-width: 400px){
+  .hero nav h2 {
+    color: #fff;
+    font-size: 16px;
+  }
+}
 .hero nav button {
   width: 86px;
   padding: 8px 0;
@@ -142,8 +147,23 @@ button.logout{
   /*background: #000;*/
 }
 .task{
-  width: 500px;
+  max-width: 500px;
   margin: 0 auto;
+}
+@media (max-width: 550px){
+  .task{
+    margin: 0 10px;
+  }
+}
+
+.task-header{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.task-header button{
+  width: auto;
+  padding: 10px 20px;
 }
 .form{
   background: rgba(0, 0, 0, 0.7);

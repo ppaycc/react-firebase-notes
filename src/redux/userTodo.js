@@ -1,4 +1,3 @@
-import * as axios from "axios";
 import firebase from "firebase";
 const SET_USER_ID = 'SET_USER_ID';
 const SET_USER_EMAIL = 'SET_USER_EMAIL';
@@ -46,41 +45,27 @@ const setTask = (task) => {
 }
 export const initializationDataBase = (userId) => {
     return dispatch => {
-        // const db = firebase.database();
-        // db.ref(userId).push([]);
         const db = firebase.database();
         const data = db.ref(userId);
         data.on('value', (elem)=>{
-            // console.log(elem.val());
             if (elem.val() === null){
                 dispatch(setTask([]));
             } else {
                 dispatch(setTask(elem.val()));
             }
         });
-        // let data = JSON.parse(name);
     }
 }
 export const addNewTask = (userId, data) => {
     return dispatch => {
         const db = firebase.database();
-        // db.ref(userId).remove();
         db.ref(userId).push(data);
-        // console.log(value);
     }
 }
 export const deleteTaskThunk = (id, userId) => {
     return dispatch => {
         const db = firebase.database();
         db.ref(userId).child(id).remove();
-        // const newTasks = Object.values(oldtasks).filter(item=> item.data !== id);
-        // db.ref(userId).push(newTasks);
-        // const data = db.ref(userId);
-        // data.on('value', elem=>{
-        //     dispatch(setTask(elem.val()));
-        // })
-        // dispatch(setTask(e);
-        // console.log(newTasks);
     }
 }
 export default userTodo;
