@@ -9,13 +9,13 @@ const Form = ({ setShowForm, userId }) => {
 
   const click = () => {
     if (header.trim().length > 0 && title.trim().length > 0) {
-      console.log("header", header, "title", title);
       dispatch(
         addNewTask(userId, {
           timeAgo: Date.now(),
           header,
           title,
           timePost: new Date().getTime(),
+          completed: false,
         })
       );
       setShowForm(false);

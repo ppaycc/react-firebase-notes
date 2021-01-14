@@ -11,7 +11,8 @@ function App() {
         <div className="App">
             <Route exact path='/auth' render={()=> <Login/> } />
             <Route exact path='/' render={()=> <Redirect to='/auth'/> } />
-            <Route exact path='/task' render={()=> <Task/> } />
+            <Route exact path='/task/:status?' render={()=> <Task/> } />
+            <Route exact path='/task' render={()=> <Redirect to='/auth/'/>}/>
         </div>
       </BrowserRouter>
   );

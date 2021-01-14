@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
+import {Redirect, Route, NavLink} from "react-router-dom";
 import fire from "../../fire";
 import {
   deleteTaskThunk,
   initializationDataBase,
   setUserId,
+  toggleCompletedTask,
 } from "../../redux/userTodo";
 import { useEffect, useState } from "react";
-import Todo from "./Todo";
 import Form from "./Form";
+import AllTask from "./status/AllTask";
+import InProcesses from "./status/InProcesses";
+import Done from "./status/Done";
 
 const Task = () => {
   const userId = useSelector((state) => state.data.userId);
@@ -33,11 +36,14 @@ const Task = () => {
         arrTasks.push({ ...copy[i], id: i });
       }
     }
-    return arrTasks;
+    return arrTasks.reverse();
   };
 
   const deleteTask = (id) => {
-    dispatch(deleteTaskThunk(id, userId, task));
+    dispatch(deleteTaskThunk(id, userId));
+  };
+  const toggleCompleted = (id, completed) => {
+    dispatch(toggleCompletedTask(id, completed, userId));
   };
   return userId ? (
     <section className="hero">
@@ -51,23 +57,23 @@ const Task = () => {
           <h2 className="header">Tasks</h2>
           <button onClick={() => setShowForm(true)}>Add</button>
         </div>
-        {Object.keys(task).length > 0 ? (
-          makeGreatTask(task).map((item) => {
-            return (
-              <Todo
-                key={item.id}
-                header={item.header}
-                deleteTask={deleteTask}
-                id={item.id}
-                body={item.title}
-                timeAgo={item.timeAgo}
-                timePost={item.timePost}
-              />
-            );
-          })
-        ) : (
-          <span className="empty">You don't have notes</span>
-        )}
+        <div className="status-nav">
+          <NavLink to={'/task/all'}>All</NavLink>
+          <NavLink to={'/task/in-processes'}>In processes</NavLink>
+          <NavLink to={'/task/done'}>Done</NavLink>
+        </div>
+        <Route  path='/task/all' render={()=> <AllTask makeGreatTask={makeGreatTask}
+                                                       deleteTask={deleteTask}
+                                                       toggleCompleted={toggleCompleted}
+                                                       task={task}/> } />
+        <Route  path='/task/in-processes' render={()=> <InProcesses makeGreatTask={makeGreatTask}
+                                                       deleteTask={deleteTask}
+                                                       toggleCompleted={toggleCompleted}
+                                                       task={task}/> } />
+        <Route  path='/task/done' render={()=> <Done makeGreatTask={makeGreatTask}
+                                                                    deleteTask={deleteTask}
+                                                                    toggleCompleted={toggleCompleted}
+                                                                    task={task}/> } />
       </div>
     </section>
   ) : (

@@ -108,6 +108,7 @@ button {
 .hero {
   width: 100%;
   min-height: 100vh;
+  padding-bottom: 10px;
   background: radial-gradient(
           ellipse at left bottom,
           rgba(22, 24, 47, 1) 0%,
@@ -130,6 +131,9 @@ button {
   font-size: 20px;
 }
 @media (max-width: 400px){
+  .hero nav{
+    padding: 5px;
+  }
   .hero nav h2 {
     color: #fff;
     font-size: 16px;
@@ -149,6 +153,12 @@ button.logout{
 .task{
   max-width: 500px;
   margin: 0 auto;
+}
+.task button{
+  transition: .3s;
+}
+.task button:hover{
+  background: #603ba3;
 }
 @media (max-width: 550px){
   .task{
@@ -201,7 +211,19 @@ button.logout{
   /*align-content: space-between;*/
   /*align-items: space-between;*/
 }
-
+@media (max-width: 500px) {
+  .form .formWrapper{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+  .form .formWrapper input{
+    margin: 15px 0;
+  }
+  .form .formWrapper textarea{
+    margin-bottom: 15px;
+  }
+}
 .form .formWrapper input{
   padding: 10px;
   width: 100%;
@@ -238,7 +260,12 @@ button.logout{
   color: white;
   margin-top: 10px;
   border: 2px solid #603bbb;
+  overflow: hidden;
   border-radius: 10px 10px 10px 10px;
+  border-bottom: none;
+}
+.todo:last-child{
+  /*padding-bottom: 10px;*/
 }
 .todo button{
   padding: 10px;
@@ -251,8 +278,16 @@ button.logout{
   content: '';
   display: block;
   width: 100%;
-  height: 1px;
+  height: 1.5px;
   background: #603bbb;
+}
+.headerTodo.done:after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: greenyellow;
+  /* background: #603bbb; */
 }
 .todo .timeAgo{
   color: gray;
@@ -274,4 +309,34 @@ button.logout{
 .empty{
   color: white;
 }
-
+.btn-group button{
+  display: inline-block;
+  width: 50%;
+  border-radius: 0;
+}
+.btn-group-two{
+  border-left: 1px solid #32244e;
+}
+.btn-group-one{
+  /* border-right: 1px solid #3a2b58; */
+  border-right: 1px solid #32244e;
+}
+.status-nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.status-nav a{
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  border-bottom: 2px solid rgba(0,0,0,0);
+}
+.status-nav a.active{
+  color: gray;
+  border-bottom: 2px solid gray;
+}
+.status-nav a:hover{
+  color: gray;
+  border-bottom: 2px solid gray;
+}

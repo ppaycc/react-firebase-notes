@@ -68,4 +68,10 @@ export const deleteTaskThunk = (id, userId) => {
         db.ref(userId).child(id).remove();
     }
 }
+export const toggleCompletedTask = (id, completed, userId) => {
+    return dispatch => {
+        const db = firebase.database();
+        db.ref(userId).child(id).update({"completed": !completed});
+    }
+}
 export default userTodo;

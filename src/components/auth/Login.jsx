@@ -80,7 +80,7 @@ const Login = () => {
   }, [authListener]);
 
   return user ? (
-    <Redirect to="task" />
+    <Redirect to="/task/all" />
   ) : (
     <section className="login">
       <div className="loginContainer">
